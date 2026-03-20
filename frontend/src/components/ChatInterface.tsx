@@ -1,102 +1,116 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 interface Message {
-  role: 'user' | 'assistant';
+  role: 'user' | 'ai';
   content: string;
 }
 
 interface ChatInterfaceProps {
   sessionId: string;
-  messages: Message[];
-  onSend: (question: string) => void;
-  loading: boolean;
 }
 
-const SUGGESTED = [
-  "Does this candidate have a state university degree?",
-  "What's their experience with React?",
-  "Can they lead a backend team?",
-  "Are they eligible to work in the US?",
+const SUGGESTIONS = [
+  "Does this candidate have relevant experience?",
+  "What is their educational background?",
+  "Summarize their key technical skills",
+  "Are there any red flags?",
 ];
 
-const ChatInterface: React.FC<ChatInterfaceProps> = ({
-  sessionId, messages, onSend, loading,
-}) => {
+export default function ChatInterface({ sessionId }: ChatInterfaceProps) {
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, loading]);
+  }, [messages]);
 
-  const handleSend = () => {
-    const q = input.trim();
-    if (!q || loading) return;
+  const sendMessage = async (question: string) => {
+    if (!question.trim() || loading) return;
+
+    const userMsg: Message = { role: 'user', content: question };
+    setMessages(prev => [...prev, userMsg]);
     setInput('');
-    onSend(q);
+    setLoading(true);
+
+    try {
+      const res = await fetch('http://localhost:3001/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sessionId, question }),
+      });
+      const data = await res.json();
+      setMessages(prev => [...prev, { role: 'ai', content: data.answer }]);
+    } catch {
+      setMessages(prev => [...prev, { role: 'ai', content: 'Something went wrong. Please try again.' }]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage(input);
+    }
   };
 
   return (
     <div className="chat-section">
       <div className="chat-header">
-        <span>💬</span> Ask Questions About This Candidate
+        <h3>Ask about this candidate</h3>
       </div>
 
-      <div className="chat-messages">
-        {messages.length === 0 && !loading && (
-          <div className="chat-empty">
-            <span className="chat-empty-icon">🤖</span>
-            <span>Ask anything about the candidate's resume</span>
-            <div className="suggested-questions">
-              {SUGGESTED.map((q, i) => (
-                <button key={i} className="suggested-q" onClick={() => onSend(q)}>
-                  {q}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
+      {/* Suggestions */}
+      {messages.length === 0 && (
+        <div className="suggested-questions">
+          {SUGGESTIONS.map((q, i) => (
+            <button key={i} className="suggested-pill" onClick={() => sendMessage(q)}>
+              {q}
+            </button>
+          ))}
+        </div>
+      )}
 
+      {/* Messages */}
+      <div className="chat-messages">
         {messages.map((msg, i) => (
           <div key={i} className={`message ${msg.role}`}>
-            <div className="message-avatar">
-              {msg.role === 'user' ? '👤' : '🤖'}
-            </div>
-            <div className="message-bubble">{msg.content}</div>
+            {msg.role === 'ai' && <div className="label">AI</div>}
+            {msg.content}
           </div>
         ))}
-
         {loading && (
-          <div className="message assistant">
-            <div className="message-avatar">🤖</div>
-            <div className="message-bubble">
-              <div className="typing-indicator">
-                <span className="typing-dot"></span>
-                <span className="typing-dot"></span>
-                <span className="typing-dot"></span>
-              </div>
-            </div>
+          <div className="message ai">
+            <div className="label">AI</div>
+            Thinking...
           </div>
         )}
-
         <div ref={bottomRef} />
       </div>
 
-      <div className="chat-input-area">
+      {/* Input */}
+      <div className="chat-input-wrapper">
         <input
           className="chat-input"
-          placeholder="Type your question..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+          onKeyDown={handleKeyDown}
+          placeholder="Type your question..."
           disabled={loading}
         />
-        <button className="chat-send" onClick={handleSend} disabled={loading || !input.trim()}>
-          Send
+        <button
+          className="send-btn"
+          onClick={() => sendMessage(input)}
+          disabled={!input.trim() || loading}
+        >
+          <svg viewBox="0 0 24 24">
+            <line x1="22" y1="2" x2="11" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
         </button>
       </div>
     </div>
   );
-};
-
-export default ChatInterface;
+}

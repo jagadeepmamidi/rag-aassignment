@@ -1,16 +1,32 @@
 """
-Gemini LLM service.
+LLM service using Groq (llama-3.3-70b-versatile).
 Handles match analysis and chat with context.
 """
 
 import os
 import json
 import re
-import google.generativeai as genai
+from groq import Groq
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+_client = None
 
-model = genai.GenerativeModel("gemini-2.0-flash")
+
+def _get_client():
+    global _client
+    if _client is None:
+        _client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+    return _client
+
+
+def _generate(prompt: str) -> str:
+    """Generate a response from Groq."""
+    response = _get_client().chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.3,
+        max_tokens=2048,
+    )
+    return response.choices[0].message.content.strip()
 
 
 async def analyze_match(resume_text: str, jd_text: str) -> dict:
@@ -39,8 +55,7 @@ Be specific — reference actual skills, years of experience, and qualifications
 Score should reflect realistic match percentage.
 Return ONLY valid JSON, no markdown or extra text."""
 
-    response = model.generate_content(prompt)
-    text = response.text.strip()
+    text = _generate(prompt)
 
     # clean markdown code fences if present
     text = re.sub(r"^```json?\s*", "", text)
@@ -93,5 +108,4 @@ QUESTION: {question}
 
 Give a clear, specific answer citing facts from the resume. Be concise."""
 
-    response = model.generate_content(prompt)
-    return response.text.strip()
+    return _generate(prompt)

@@ -1,6 +1,6 @@
 """
 Gemini embedding service.
-Generates 768-dimensional embeddings using text-embedding-004.
+Generates 768-dimensional embeddings using embedding-001.
 """
 
 import os
@@ -8,7 +8,7 @@ import google.generativeai as genai
 
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-EMBEDDING_MODEL = "models/text-embedding-004"
+EMBEDDING_MODEL = "models/gemini-embedding-001"
 
 
 def generate_embedding(text: str) -> list[float]:

@@ -5,8 +5,6 @@ import FileUpload from './components/FileUpload';
 import MatchAnalysis from './components/MatchAnalysis';
 import ChatInterface from './components/ChatInterface';
 
-const API_BASE = 'http://localhost:3001/api';
-
 interface MatchResult {
   score: number;
   strengths: string[];
@@ -15,121 +13,87 @@ interface MatchResult {
   summary: string;
 }
 
-interface Message {
-  role: 'user' | 'assistant';
-  content: string;
-}
-
 function App() {
-  const [resumeFile, setResumeFile] = useState<File | null>(null);
-  const [jdFile, setJdFile] = useState<File | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [matchResult, setMatchResult] = useState<MatchResult | null>(null);
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [uploading, setUploading] = useState(false);
-  const [chatLoading, setChatLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
+  const [jdFile, setJdFile] = useState<File | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [loadingStage, setLoadingStage] = useState('');
 
-  const handleAnalyze = async () => {
-    if (!resumeFile || !jdFile) return;
-    setUploading(true);
-    setError(null);
-    setMatchResult(null);
-    setSessionId(null);
-    setMessages([]);
+  const handleAnalyze = async (resume: File, jd: File) => {
+    setLoading(true);
+    setLoadingStage('Extracting text from documents...');
 
     try {
       const formData = new FormData();
-      formData.append('resume', resumeFile);
-      formData.append('jobDescription', jdFile);
+      formData.append('resume', resume);
+      formData.append('jobDescription', jd);
 
-      const res = await fetch(`${API_BASE}/upload`, {
+      setLoadingStage('Generating embeddings and storing vectors...');
+
+      const res = await fetch('http://localhost:3001/api/upload', {
         method: 'POST',
         body: formData,
       });
 
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || 'Upload failed');
-      }
-
+      setLoadingStage('Analyzing match with AI...');
       const data = await res.json();
-      setSessionId(data.sessionId);
-      setMatchResult(data.matchResult);
-    } catch (err: any) {
-      setError(err.message);
+
+      if (data.sessionId && data.matchResult) {
+        setSessionId(data.sessionId);
+        setMatchResult(data.matchResult);
+      }
+    } catch (err) {
+      console.error('Upload failed:', err);
     } finally {
-      setUploading(false);
+      setLoading(false);
+      setLoadingStage('');
     }
   };
 
-  const handleChat = async (question: string) => {
-    if (!sessionId) return;
-    setChatLoading(true);
-    setMessages(prev => [...prev, { role: 'user', content: question }]);
-
-    try {
-      const res = await fetch(`${API_BASE}/chat`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sessionId, question }),
-      });
-
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || 'Chat failed');
-      }
-
-      const data = await res.json();
-      setMessages(prev => [...prev, { role: 'assistant', content: data.answer }]);
-    } catch (err: any) {
-      setMessages(prev => [...prev, { role: 'assistant', content: `Error: ${err.message}` }]);
-    } finally {
-      setChatLoading(false);
-    }
+  const handleReset = () => {
+    setSessionId(null);
+    setMatchResult(null);
+    setResumeFile(null);
+    setJdFile(null);
   };
 
   return (
-    <>
-      <Header />
+    <div className="app">
+      <div className="app-container">
+        <Header />
 
-      <FileUpload
-        resumeFile={resumeFile}
-        jdFile={jdFile}
-        onResumeChange={setResumeFile}
-        onJdChange={setJdFile}
-        onAnalyze={handleAnalyze}
-        loading={uploading}
-      />
+        {!matchResult && !loading && (
+          <FileUpload
+            onAnalyze={handleAnalyze}
+            isLoading={loading}
+            resumeFile={resumeFile}
+            jdFile={jdFile}
+            setResumeFile={setResumeFile}
+            setJdFile={setJdFile}
+          />
+        )}
 
-      {uploading && (
-        <div className="loading-overlay">
-          <div className="spinner" />
-          <div className="loading-text">Analyzing Resume...</div>
-          <div className="loading-sub">Parsing → Chunking → Embedding → Storing in Pinecone → LLM Analysis</div>
-        </div>
-      )}
+        {loading && (
+          <div className="loading-overlay">
+            <div className="loading-spinner" />
+            <p>Analyzing candidate...</p>
+            <p className="loading-stage">{loadingStage}</p>
+          </div>
+        )}
 
-      {error && (
-        <div style={{
-          padding: 16, background: 'var(--danger-bg)', border: '1px solid var(--danger)',
-          borderRadius: 'var(--radius)', marginBottom: 20, color: 'var(--danger)', fontSize: 14,
-        }}>
-          ⚠️ {error}
-        </div>
-      )}
-
-      {matchResult && <MatchAnalysis result={matchResult} />}
-
-      {sessionId && matchResult && (
-        <ChatInterface
-          sessionId={sessionId}
-          messages={messages}
-          onSend={handleChat}
-          loading={chatLoading}
-        />
-      )}
-    </>
+        {matchResult && (
+          <>
+            <MatchAnalysis result={matchResult} />
+            {sessionId && <ChatInterface sessionId={sessionId} />}
+            <button className="new-analysis-btn" onClick={handleReset}>
+              Start New Analysis
+            </button>
+          </>
+        )}
+      </div>
+    </div>
   );
 }
 

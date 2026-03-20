@@ -7,20 +7,34 @@ import os
 from pinecone import Pinecone, ServerlessSpec
 
 
+EMBEDDING_DIM = 3072  # gemini-embedding-001 dimension
+
+
 def _get_index():
     """Get or create the Pinecone index."""
     pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
     index_name = os.getenv("PINECONE_INDEX_NAME", "resume-screener")
 
-    # create index if it doesn't exist
-    existing = [idx.name for idx in pc.list_indexes()]
+    existing = {idx.name: idx for idx in pc.list_indexes()}
+
+    if index_name in existing:
+        # If dimension doesn't match, delete and recreate
+        if existing[index_name].dimension != EMBEDDING_DIM:
+            print(f"[Pinecone] Dimension mismatch — recreating index with dim={EMBEDDING_DIM}")
+            pc.delete_index(index_name)
+            import time
+            time.sleep(5)  # wait for deletion to propagate
+            existing = {}
+
     if index_name not in existing:
         pc.create_index(
             name=index_name,
-            dimension=768,  # Gemini text-embedding-004 dimension
+            dimension=EMBEDDING_DIM,
             metric="cosine",
             spec=ServerlessSpec(cloud="aws", region="us-east-1"),
         )
+        import time
+        time.sleep(10)  # wait for index to be ready
 
     return pc.Index(index_name)
 
