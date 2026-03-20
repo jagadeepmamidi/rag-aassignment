@@ -1,0 +1,68 @@
+AMIT SHARMA
+Full Stack Software Developer
+Email: amit.sharma@gmail.com | Phone: +91 98765 43210
+Location: Bengaluru, Karnataka | LinkedIn: linkedin.com/in/amitsharma
+
+CAREER OBJECTIVE
+Result-oriented Full Stack Developer with 5+ years of experience in building scalable web applications using React, Node.js, and modern JavaScript/TypeScript. Strong in backend architecture, API design, and database management. Looking for challenging roles in product-based companies.
+
+EDUCATION
+B.Tech in Computer Science and Engineering
+National Institute of Technology (NIT), Surathkal — 2018
+CGPA: 8.6/10 | University Gold Medalist
+
+Class XII (CBSE) — Kendriya Vidyalaya, Mysuru — 2014
+Percentage: 94.2%
+
+Class X (CBSE) — Kendriya Vidyalaya, Mysuru — 2012
+CGPA: 10/10
+
+PROFESSIONAL EXPERIENCE
+
+Senior Software Engineer | Flipkart, Bengaluru
+June 2021 – Present | CTC: ₹28 LPA
+- Led a team of 4 developers to build a real-time order tracking dashboard using React 18, TypeScript, and Node.js, serving 2 Cr+ daily users
+- Architected RESTful APIs using Express.js and PostgreSQL with query optimization reducing response times by 40%
+- Implemented CI/CD pipelines using Jenkins and Docker, cutting deployment time by 60%
+- Built a microservices-based notification system using RabbitMQ for async event processing
+- Mentored 2 junior developers through code reviews, pair programming, and weekly 1-on-1 sessions
+- Awarded "Star Performer" Q3 2023
+
+Software Engineer | Infosys (Digital Hub), Pune
+July 2018 – May 2021 | CTC: ₹12 LPA
+- Developed customer analytics platform using React, Redux, and D3.js for interactive data visualization
+- Built backend services in Node.js with MongoDB, processing 10 Lakh+ records daily
+- Integrated third-party APIs (Razorpay, SendGrid, MSG91) for payments, email, and SMS
+- Wrote comprehensive unit and integration tests using Jest and Cypress, achieving 92% code coverage
+- Worked in Agile/Scrum environment with 2-week sprint cycles
+
+TECHNICAL SKILLS
+Languages: JavaScript (ES6+), TypeScript, Python, SQL, HTML5, CSS3
+Frontend: React.js (3+ years), Redux, Next.js, Tailwind CSS, Material UI, Webpack, Vite
+Backend: Node.js (5 years), Express.js, NestJS, GraphQL, REST APIs
+Databases: PostgreSQL, MongoDB, Redis, Elasticsearch
+DevOps: Docker, Jenkins, GitHub Actions, AWS (EC2, S3, Lambda), Nginx
+Testing: Jest, Cypress, React Testing Library, Supertest
+Tools: Git, Jira, Figma, Postman, VS Code
+
+PROJECTS
+Open Source — React Query Toolkit
+- Contributed pagination and caching improvements to React data-fetching library (2K+ GitHub stars)
+
+Personal Project — KharchaTracker
+- Built a personal expense tracker with React Native, Node.js, and PostgreSQL
+- Features: UPI transaction parsing, category tagging, monthly budget reports
+
+CERTIFICATIONS
+- AWS Certified Cloud Practitioner (2022)
+- MongoDB Certified Developer Associate (2021)
+
+ACHIEVEMENTS
+- Ranked in Top 500 in Google Code Jam 2019
+- Smart India Hackathon 2017 — Grand Finalist
+- 3-star on CodeChef (Rating: 1750+)
+
+PERSONAL DETAILS
+Date of Birth: 15th March 1996
+Languages: English, Hindi, Kannada
+Notice Period: 30 days (negotiable)

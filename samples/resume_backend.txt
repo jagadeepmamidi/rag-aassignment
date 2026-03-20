@@ -1,0 +1,72 @@
+PRIYA NAIR
+Backend Software Engineer
+Email: priya.nair@gmail.com | Phone: +91 87654 32109
+Location: Hyderabad, Telangana | LinkedIn: linkedin.com/in/priyanair
+
+CAREER OBJECTIVE
+Backend-focused Software Engineer with 3 years of experience building distributed systems, microservices, and data pipelines. Proficient in Python, Java, and cloud-native technologies. Seeking challenging roles in high-scale product engineering teams.
+
+EDUCATION
+M.Tech in Computer Science
+Indian Institute of Technology (IIT), Hyderabad — 2021
+CGPA: 9.1/10
+Thesis: "Optimizing Query Performance in Distributed Graph Databases"
+
+B.Tech in Information Technology
+National Institute of Technology (NIT), Trichy — 2019
+CGPA: 8.8/10
+
+Class XII (CBSE) — Delhi Public School, Hyderabad — 2015
+Percentage: 96.4%
+
+PROFESSIONAL EXPERIENCE
+
+SDE-2 | Amazon Development Centre, Hyderabad
+August 2021 – Present | CTC: ₹32 LPA
+- Designed and implemented microservices handling 1 Cr+ API requests/day using Python (FastAPI) and Go
+- Built real-time data ingestion pipeline using Apache Kafka and Apache Spark, processing 500GB+ daily
+- Managed PostgreSQL and Cassandra clusters serving 2TB+ of production data
+- Implemented service mesh with Istio for inter-service communication and observability
+- Led migration from monolithic Django application to microservices, reducing deployment cycles from weekly to daily
+- Set up monitoring with Prometheus, Grafana, and ELK stack
+- Promoted from SDE-1 to SDE-2 within 18 months
+
+Backend Engineer Intern | Razorpay, Bengaluru
+May 2020 – July 2020
+- Built RESTful APIs for payment dashboard using Django REST Framework
+- Implemented rate limiting and caching layer using Redis, improving response times by 3x
+- Wrote automated test suites achieving 88% code coverage
+
+TECHNICAL SKILLS
+Languages: Python (3+ years), Java (2 years), Go, SQL, Bash
+Backend: FastAPI, Django, Spring Boot, gRPC, REST APIs, GraphQL
+Databases: PostgreSQL, Cassandra, Redis, MongoDB, Neo4j
+Cloud & DevOps: AWS (ECS, RDS, Lambda, SQS), Kubernetes, Docker, Terraform, Jenkins
+Data: Apache Kafka, Apache Spark, Airflow, dbt, Pandas
+Monitoring: Prometheus, Grafana, ELK Stack, Datadog
+Testing: pytest, JUnit, Locust (load testing)
+
+PROJECTS
+Research — Distributed Query Optimizer
+- IIT Hyderabad thesis: novel query optimization for distributed graph databases
+- Achieved 35% improvement in complex query execution time
+
+Open Source — FastAPI Rate Limiter
+- Published Python package for configurable rate limiting in FastAPI (500+ PyPI downloads/month)
+
+PUBLICATIONS
+- "Adaptive Query Routing in Distributed Graph Databases" — ACM SIGMOD 2021 Workshop
+
+CERTIFICATIONS
+- AWS Solutions Architect Associate (2022)
+- Certified Kubernetes Administrator (CKA) (2023)
+
+ACHIEVEMENTS
+- GATE 2019 — AIR 87 (CS)
+- ACM-ICPC Regionalist 2018
+- Google Summer of Code 2018 participant
+
+PERSONAL DETAILS
+Date of Birth: 22nd July 1997
+Languages: English, Hindi, Telugu, Malayalam
+Notice Period: 60 days

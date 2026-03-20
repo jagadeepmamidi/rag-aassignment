@@ -1,0 +1,59 @@
+JOB TITLE: Senior Full Stack Developer
+
+COMPANY: Razorpay
+LOCATION: Bengaluru, Karnataka (Hybrid — 3 days WFO)
+EMPLOYMENT TYPE: Full-Time, Permanent
+CTC RANGE: ₹25 LPA – ₹40 LPA (based on experience)
+
+ABOUT RAZORPAY
+Razorpay is India's leading full-stack financial solutions company. We are building the next generation of payment infrastructure for India and beyond. Our engineering team works on high-scale distributed systems processing millions of transactions daily.
+
+ABOUT THE ROLE
+We are looking for a Senior Full Stack Developer to join our Platform Engineering team. You will build and scale internal tools, merchant dashboards, and payment orchestration layers used by 10M+ businesses across India.
+
+KEY RESPONSIBILITIES
+- Design, develop, and maintain full-stack web applications using React and Node.js
+- Build and optimize RESTful APIs and microservices architecture
+- Write clean, maintainable, and well-tested code with comprehensive unit and integration tests
+- Collaborate with the product team to translate PRDs into technical solutions
+- Mentor junior developers and conduct code reviews
+- Participate in HLD/LLD discussions and contribute to architecture decisions
+- Monitor application performance and implement optimizations
+- Work with CI/CD pipelines and cloud infrastructure (AWS preferred)
+- Participate in on-call rotation for production systems
+
+MANDATORY REQUIREMENTS
+- B.Tech/B.E. in Computer Science or equivalent from a recognized university
+- 4+ years of professional software development experience
+- Strong proficiency in React.js (2+ years) and Node.js (3+ years)
+- Experience with TypeScript in production applications
+- Solid understanding of PostgreSQL or similar RDBMS
+- Experience with RESTful API design and implementation
+- Hands-on with Docker and container-based deployments
+- Strong DSA fundamentals (will be tested in interviews)
+- Excellent problem-solving and communication skills
+
+GOOD TO HAVE
+- Experience with AWS services (EC2, S3, Lambda, RDS)
+- Knowledge of microservices and event-driven architecture
+- Experience with GraphQL or gRPC
+- Familiarity with Kubernetes and container orchestration
+- Experience with Kafka or RabbitMQ
+- Open-source contributions
+
+INTERVIEW PROCESS
+1. Online Assessment (DSA + MCQs) — 90 mins
+2. Technical Round 1 — DSA + Problem Solving (60 mins)
+3. Technical Round 2 — LLD + System Design (60 mins)
+4. Technical Round 3 — HLD + Past Experience Deep Dive (60 mins)
+5. Hiring Manager Round — Culture fit + Team alignment (45 mins)
+
+PERKS & BENEFITS
+- Competitive CTC with ESOPs
+- Health insurance for self + family (₹10 Lakh cover)
+- Flexible work hours with hybrid model
+- Learning & Development budget (₹1 Lakh/year)
+- Free meals on WFO days
+- Annual offsite + team outings
+- Relocation assistance for outstation candidates
+- 24 days paid leaves + 12 public holidays

@@ -1,0 +1,66 @@
+SNEHA GUPTA
+Junior Frontend Developer
+Email: sneha.gupta@gmail.com | Phone: +91 76543 21098
+Location: Noida, Uttar Pradesh | GitHub: github.com/snehagupta
+
+CAREER OBJECTIVE
+Motivated Frontend Developer with 1.5 years of experience building responsive web applications. Strong foundation in React.js and modern CSS. Eager to learn and grow in a collaborative product engineering team.
+
+EDUCATION
+B.Tech in Computer Science and Engineering
+Amity University, Noida — 2022
+CGPA: 7.4/10
+
+Class XII (CBSE) — Army Public School, Delhi — 2018
+Percentage: 82%
+
+Class X (CBSE) — Army Public School, Delhi — 2016
+Percentage: 88%
+
+PROFESSIONAL EXPERIENCE
+
+Frontend Developer | Zomato (Contract via TCS Digital), Gurugram
+January 2023 – Present | CTC: ₹6.5 LPA
+- Build and maintain React components for the restaurant partner dashboard with 50K+ active merchants
+- Implement responsive designs using Tailwind CSS, converting Figma mockups to pixel-perfect UI
+- Collaborate with backend team to integrate REST APIs for order management and authentication
+- Participate in daily standups and bi-weekly sprint planning
+- Fixed 50+ UI bugs and improved Lighthouse performance scores from 65 to 88
+
+Intern — Web Development | Cognizant, Hyderabad
+June 2022 – December 2022
+- Developed 5 internal tool interfaces using React and Ant Design
+- Created reusable component library used across 3 projects
+- Assisted in migrating legacy jQuery dashboards to React
+
+TECHNICAL SKILLS
+Languages: JavaScript, HTML5, CSS3, Basic Python, SQL
+Frontend: React.js (1.5 years), Tailwind CSS, Bootstrap, Ant Design, Responsive Design
+Backend: Basic Node.js, Express.js (limited exposure)
+Databases: PostgreSQL (basic queries), Firebase
+Tools: Git, GitHub, VS Code, Figma, Chrome DevTools, Vercel
+Testing: Basic Jest, Manual testing
+
+PROJECTS
+Personal Project — TaskFlow
+- React-based task management app with drag-and-drop Kanban board
+- Technologies: React, React DnD, Local Storage
+
+Academic Capstone — HealthConnect
+- Telemedicine appointment booking platform with video calling
+- Technologies: React, Node.js, MongoDB, Socket.io
+
+CERTIFICATIONS
+- Meta Front-End Developer Professional Certificate (Coursera, 2022)
+- HackerRank JavaScript (Intermediate)
+
+ACHIEVEMENTS
+- Smart India Hackathon 2021 — Participated (Top 50 teams nationally)
+- TCS CodeVita Season 10 — Cleared Round 1
+
+PERSONAL DETAILS
+Date of Birth: 8th November 1999
+Languages: English, Hindi
+Notice Period: 15 days
+Current CTC: ₹6.5 LPA
+Expected CTC: ₹10 LPA

@@ -1,0 +1,61 @@
+JOB TITLE: Backend Engineer (SDE-2)
+
+COMPANY: Swiggy
+LOCATION: Bengaluru, Karnataka (Hybrid — 3 days WFO)
+EMPLOYMENT TYPE: Full-Time, Permanent
+CTC RANGE: ₹30 LPA – ₹50 LPA (based on experience and interview performance)
+
+ABOUT SWIGGY
+Swiggy is India's leading on-demand delivery platform, serving 500+ cities with food delivery, quick commerce (Instamart), and Dineout. Our engineering team builds systems that handle 2 Cr+ orders per month with 99.99% uptime.
+
+ABOUT THE ROLE
+We are hiring a Backend Engineer (SDE-2) for the Order Platform team. You will design and build APIs, data pipelines, and distributed systems that power Swiggy's core order lifecycle — from order placement to delivery completion — at massive scale.
+
+KEY RESPONSIBILITIES
+- Design and implement high-throughput RESTful and gRPC APIs
+- Build and maintain data processing pipelines using Java/Python and streaming frameworks
+- Optimize database performance across MySQL and NoSQL systems
+- Implement and manage Kubernetes-orchestrated microservices
+- Ensure system reliability through monitoring, alerting, and incident response
+- Write technical design documents and participate in architecture reviews
+- Collaborate with data science, ML, and frontend teams
+- Contribute to infrastructure-as-code using Terraform
+
+MANDATORY REQUIREMENTS
+- B.Tech/M.Tech in Computer Science or related field from a Tier-1/Tier-2 college
+- 3+ years of backend development experience at a product company
+- Strong proficiency in Java or Python
+- Experience with MySQL/PostgreSQL and at least one NoSQL database (Cassandra, MongoDB, or Redis)
+- Hands-on experience with Kubernetes and Docker in production
+- Familiarity with message queues (Kafka, RabbitMQ, or SQS)
+- Experience with AWS or GCP cloud platform
+- Understanding of microservices and distributed systems design patterns
+- Strong DSA skills (will be evaluated in interview rounds)
+
+GOOD TO HAVE
+- Experience with Apache Kafka and real-time stream processing
+- Knowledge of Apache Spark or Apache Flink
+- Experience with service mesh technologies (Istio, Linkerd)
+- Familiarity with Terraform or Pulumi
+- Published research or open-source contributions
+- Experience with observability tools (Prometheus, Grafana, Datadog)
+- Prior experience in food-tech, e-commerce, or logistics domain
+
+INTERVIEW PROCESS
+1. Phone Screen — DSA (45 mins)
+2. Technical Round 1 — DSA + Coding (60 mins)
+3. Technical Round 2 — Low Level Design (60 mins)
+4. Technical Round 3 — High Level Design + System Design (60 mins)
+5. Hiring Manager Round (45 mins)
+6. HR Discussion — CTC negotiation, joining date
+
+PERKS & BENEFITS
+- Industry-leading CTC with significant ESOP grants
+- Group health insurance (₹15 Lakh cover for family)
+- Swiggy One membership (free delivery + discounts)
+- ₹1.5 Lakh annual learning budget
+- WFH setup allowance (₹50,000)
+- Gym membership reimbursement
+- 26 paid leaves + 10 public holidays + birthday leave
+- Annual performance bonus (up to 15% of CTC)
+- Relocation support + temporary accommodation for 1 month
